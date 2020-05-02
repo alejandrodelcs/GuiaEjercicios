@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
 
-def divisores(num):
-    lista_divisores = []
-    for i in range(1,num+1):
-        if num%i == 0:
-            lista_divisores.append(i)
-    return lista_divisores
+def maximo_comun_divisor(num1, num2):
+    if num1>num2:
+        resto =  int(num1%num2)
+        cociente = int(num1/num2)
+        while resto != 0:
+            aux = num1
+            num1 = num2
+            num2 = aux 
+            num2 = resto
 
-def max_com_div(lista_div_1,lista_div_2):
-    lista_mcd = []
-    for i in lista_div_1:
-        if i in lista_div_2:
-            lista_mcd.append(i)
-    return lista_mcd 
+            cociente = int(num1/resto)
+            resto =  int(num1%resto)    
+    else:
+        num2 = 0   
+    return num2
+        
 
 def main():
-    numero_1 = int(input('Ingrese un numero: '))
-    numero_2 = int(input('Ingrese otro numero: '))
-    lista_div_1 = divisores(numero_1)
-    lista_div_2 = divisores(numero_2)
-
-    lista_de_divisores = max_com_div(lista_div_1,lista_div_2)
-
-    print(lista_de_divisores)
+    
+    num1 = int(input('Ingrese un numero: '))
+    num2 = int(input('Ingrese otro numero: '))
+    resultado = maximo_comun_divisor(num1,num2)
+    if resultado != 0:
+        print('El MCD de {} y {} es: {} '.format(num1,num2,resultado))
+        print('EL MCM de {} y {}  es: {}'.format(num1,num2, int(num1*num2/resultado)))
+    else:
+        print('No es lo que esperaba')
 
 main()
-
