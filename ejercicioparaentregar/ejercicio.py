@@ -92,5 +92,4 @@ def validar_clave(clave):
     return valido
 
 
-import doctest
-doctest.testmod()
+
