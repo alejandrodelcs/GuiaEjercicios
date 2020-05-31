@@ -81,6 +81,8 @@ def validar_clave(clave):
     True
     >>> validar_clave("andresito50")
     False
+    >>> validar_clave("33aabbao")
+    False
 
     """
     #--------- Escribi el Codigo de la Funcion a partir de aqui ---------------#

@@ -11,19 +11,21 @@ def digitos_adyacentes(cadena):
 
 
 def secuencia_ordenada(cadena):
-    cadena_ord =  "".join(sorted(cadena))
-    cadena_ord_dec = "".join(reversed(cadena_ord))
-    cadena_sin_dup = "".join(sorted(set(cadena.lower())))
-    ordenado = False
 
-    if cadena.isnumeric() == True and (cadena_ord == cadena or cadena_ord_dec == cadena):
-        ordenado =  True
-    elif cadena.isdigit() == False and cadena_sin_dup in cadena:
+    num_cadena = [x for x in cadena if x.isdigit()]
+    let_cadena = [y for y in set(cadena.lower()) if y.isalpha()]
+    
+
+    if len(num_cadena) != 0 and (sorted(num_cadena) == num_cadena or sorted(num_cadena)[::-1] == num_cadena):
         ordenado = True
-    elif cadena.isdigit() == False and cadena_sin_dup[::-1] in cadena:
+    elif len(let_cadena) != 0 and (sorted(let_cadena) == let_cadena or sorted(let_cadena)[::-1]== let_cadena):
         ordenado = True
-        
+    else:
+        ordenado = False 
+    
     return ordenado
+    
+
 
 def contar_digitos(cadena):
     cont = 0
@@ -64,7 +66,14 @@ def validar_clave(clave):
     False
     >>> validar_clave("445566778899")
     False
-
+    >>> validar_clave("Alejandro5013")
+    True
+    >>> validar_clave("Argentina2001")
+    False
+    >>> validar_clave("Ezequiel1234")
+    False
+    >>> validar_clave("MedcbaMmm")
+    False
     """
     if contar_digitos(clave)>=4 and contar_digitos(clave)<=8:
         valido = True
@@ -75,4 +84,7 @@ def validar_clave(clave):
 
 import doctest
 doctest.testmod()
+
+
+
 
