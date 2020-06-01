@@ -15,7 +15,6 @@ def secuencia_ordenada(cadena):
     num_cadena = [x for x in cadena if x.isdigit()]
     let_cadena = [y for y in set(cadena.lower()) if y.isalpha()]
     
-
     if len(num_cadena) != 0 and (sorted(num_cadena) == num_cadena or sorted(num_cadena)[::-1] == num_cadena):
         ordenado = True
     elif len(let_cadena) != 0 and (sorted(let_cadena) == let_cadena or sorted(let_cadena)[::-1]== let_cadena):
