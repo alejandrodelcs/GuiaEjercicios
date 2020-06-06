@@ -62,20 +62,21 @@ def impuesto_max(provincias):
     imprimir_impuesto_max_abonado(impuesto_max)
 
 def imprimir_mayor_cooparticipacion(lista_ordenada_prov):
-    for pos in range(len(lista_ordenada_prov)):
-        print('{} - {}'.format(lista_ordenada_prov[pos][0], lista_ordenada_prov[pos][1]))
+    for pos in range(2):
+        print('Mayor coorpaticipacion: {} - {}'.format(lista_ordenada_prov[pos][0], lista_ordenada_prov[pos][1]))
 
 def cooparticipacion_porcentaje(provincias):
     coopar = []
     for prov in provincias:
+        print('\n')
         print(prov,end='')
-        recibio_coopar = int(input('-Ingrese coparticipación que recibio: '))
-        porcentaje = (recibio_coopar/provincias[prov][4])*100
-        coopar.append((prov,porcentaje))
+        recibio_coopar = int(input('--  Ingrese coparticipación que recibio de Nación: '))
+        porcentaje = (recibio_coopar//provincias[prov][4])*100
+        coopar.append((porcentaje))
 
-    imprimir_mayor_cooparticipacion(sorted(coopar, key=lambda recibido: coopar[1]))
+    imprimir_mayor_cooparticipacion(sorted(coopar, key=lambda recibido: recibido[1], reverse = True))
     print(coopar)
-    print(sorted(coopar, key=lambda recibido: coopar[1]))
+    print(sorted(coopar, key=lambda recibido: recibido[1]))
     
 
 def main():

@@ -32,7 +32,7 @@ def ordenar_por_desempleo(localidades):
     for localidad in localidades:
         desocupacion = (localidades[localidad][0]-localidades[localidad][1])/100
         lista_desocupacion.append((localidad,desocupacion))
-    imprimir_desempleo_localidad(sorted(lista_desocupacion, key=lambda desocup: lista_desocupacion[1]))
+    imprimir_desempleo_localidad(sorted(lista_desocupacion, key=lambda desocup: desocup[1]))
 
 def main():
     localidades = {}
