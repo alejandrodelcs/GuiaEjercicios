@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 def ingreso_dicc(cant_lluvia):
     provincia = input('Ingrese localidad: ')
 
