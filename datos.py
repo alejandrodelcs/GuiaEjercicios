@@ -21,21 +21,20 @@ def cargar_datos(mes,anio):
                     'Noviembre', 'Diciembre']
     dicc = {}
     tupla_mes = calendar.monthrange(anio,mes)
-    fin = 'no'
-    while fin.lower() == 'no':
-        nombre_ciudad = input('Ingrese nombre ciudad: ')
-        if nombre_ciudad != '':
-            print(lista_meses[mes-1])
-            for num in range(1,tupla_mes[1]+1):
-                print(num)
-                print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
-                temp = validacion_temperatura()
-                print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
-                if nombre_ciudad not in dicc:
-                    dicc[nombre_ciudad] = [[num,temp[0],temp[1]]]
-                else:
+    nombre_ciudad = input('Ingrese nombre ciudad: ')
+    while nombre_ciudad != '':
+        print(lista_meses[mes-1])
+        for num in range(1,tupla_mes[1]+1):
+            print(num)
+            print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
+            temp = validacion_temperatura()
+            print('¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨')
+            if nombre_ciudad not in dicc:
+                dicc[nombre_ciudad] = [[num,temp[0],temp[1]]]
+            else:
                     dicc[nombre_ciudad].append([num,temp[0],temp[1]])
-        fin = input('¿Termino de cargar? si/no: ')
+        nombre_ciudad = input('Ingrese nombre ciudad: ')
+        
 
     return dicc
     
