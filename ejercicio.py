@@ -79,11 +79,11 @@ def ingreso():
     ciudades = []
     dias = validacion_mes()
     datos_met = cargar_datos(dias[0],dias[1])
-
-    max_min_temperatura(sorted(datos_met.items(), key = lambda x: x[0]))
-    min_temperatura(datos_met)
-    temp_min_promedio(datos_met)
-    amplitud_termica(datos_met)
-    mostrar_datos(datos_met)
+    if datos_met != {}:
+        max_min_temperatura(sorted(datos_met.items(), key = lambda x: x[0]))
+        min_temperatura(datos_met)
+        temp_min_promedio(datos_met)
+        amplitud_termica(datos_met)
+        mostrar_datos(datos_met)
 
 ingreso()
