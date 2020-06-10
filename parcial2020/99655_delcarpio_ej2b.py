@@ -1,19 +1,37 @@
 #!/usr/bin/env python3
+"""
+{
+    "bs as": {
+        "infectados": 5,
+        "fallecidos": 10,
+        },
+    "cordoba": {
+        "infectados": 5,
+        "fallecidos": 1
+        }
+}
 
+{
+    "bs as": [5, 10],
+    "cordoba": [5, 1]
+}
+
+datos_covid["bs as"][0] -> 5
+datos_covid["bs as"]["infectados"] -> 5
+
+"""
 def ingreso_dicc(datos):
     
-    provincia = None
-    
+    provincia = input('Ingrese provincia: ')
     while provincia != '':
+        cant_infectados = int(input('Ingrese cantidad de infectados: '))
+        cant_fallecidos = int(input('Ingrese cantidad de fallecidos: '))
+        if not provincia in datos: 
+            datos[provincia] = [cant_infectados,cant_fallecidos]
+        else:
+            datos[provincia][0] += cant_infectados
+            datos[provincia][1] += cant_fallecidos
         provincia = input('Ingrese provincia: ')
-        if provincia != '':
-            cant_infectados = int(input('Ingrese cantidad de infectados: '))
-            cant_fallecidos = int(input('Ingrese cantidad de fallecidos: '))
-            if not provincia in datos: 
-                datos[provincia] = [cant_infectados,cant_fallecidos]
-            else:
-                datos[provincia][0] += cant_infectados
-                datos[provincia][1] += cant_fallecidos
 
 def total_por_provincia(datos):
     cant_infectados = 0
@@ -29,7 +47,7 @@ def imprimir_mortalidades(lista_mortalidades):
 
     if len(lista_mortalidades) != []:
         for dat in lista_mortalidades:
-            print('\nMortalidades : {} - {} '.format(dat[0],dat[1]))
+            print('\nMortalidades : {} - {:.3f} '.format(dat[0],dat[1]))
     else:
         print('No se encontro con provincia con relacion a la mortalidad')
 
@@ -37,26 +55,19 @@ def indice_mortalidad(datos):
     lista_covid = total_por_provincia(datos)
     lista_mortalidades = []
     mortalidad = (lista_covid[1]/lista_covid[0])
-
-    print('\nMortalidad: ', mortalidad)
-
-    for prov in datos: 
-        mortalidad_prov = datos[prov][1]/datos[prov][0]
-        if mortalidad_prov > mortalidad:
-            lista_mortalidades.append((prov,mortalidad_prov))
-    imprimir_mortalidades(lista_mortalidades)
+    print('Mortalidad: {:.3f}'.format(mortalidad))
+    l_mortalidades = [(prov,datos[prov][1]/datos[prov][0]) for prov in datos if datos[prov][1]/datos[prov][0]>mortalidad]
+    imprimir_mortalidades(l_mortalidades)
     
 
 def imprimir_prov_mayor_casos(lista_ordenada_casos):
     print('\nLista de casos')
     for casos in lista_ordenada_casos:
-        print('{} - {}'.format(casos[0], casos[1]))
+        print('Provincia: {} - {} casos'.format(casos[0], casos[1]))
 
 
 def provincia_mayor_casos(datos):
-    lista_prov = []
-    for prov in datos:
-        lista_prov.append((prov,datos[prov][0]))
+    lista_prov = [(prov,datos[prov][0]) for prov in datos]
     imprimir_prov_mayor_casos(sorted(lista_prov, key = lambda infectados:infectados[1], reverse = True))
 
 def main():
