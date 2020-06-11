@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+"""
+Escribir una funcion para validar una nueva clave de acceso.
+La función debera recibir una cadena de caracteres, que contendra la clave
+candidata, ingresada por el usuario; y devolvera True o False, dependiendo de
+si cumple con las condiciones establecidas.
+
+La clave debe:
+- Tener como minimo entre 4 y 8 digitos numericos
+- Los digitos adyacentes no pueden ser iguales
+- La clave no puede formar una secuencia ordenada creciente o decreciente
+"""
+
 def digitos_adyacentes(cadena):
     pos = 0
     adyacente = False
