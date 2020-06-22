@@ -1,0 +1,18 @@
+
+
+def validacion_mail(email):
+
+    if ' ' in email:
+        valido = False 
+    elif email.count('@') != 1:
+        valido = False
+    elif not(email[:email.index('@')].isalnum()):
+        valido = False
+    elif email[email.index('@'):] !=  '@fi.uba.ar' and email[email.index('@'):] !=  '@gmail.com':
+        valido = False
+    else:
+        valido = True
+
+    return valido
+    
+
