@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+x#!/usr/bin/env python3
 
 def elegir_pelicula(actores, puntajes):
     actores_validos =  ["Emma Stone", "Jazmin Stuart", "Leonardo Di Crapio", "Susana Gimenez"]

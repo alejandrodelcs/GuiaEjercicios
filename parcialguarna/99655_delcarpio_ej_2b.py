@@ -56,7 +56,7 @@ def elegir_pelicula(actores, puntajes):
     cont_valido = 0
     cont_invalido = 0
     actores_validos =  ["Emma Stone", "Jazmin Stuart", "Leonardo Di Crapio", "Susana Gimenez"]
-    for pos in puntajes:
+    for pos in puntajes:    
         if pos>=6:
             cont_valido += 1
         else:

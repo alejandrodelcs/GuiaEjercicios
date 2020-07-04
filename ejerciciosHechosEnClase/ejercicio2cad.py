@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
-'''Ejercicio 2
+'''
+Ejercicio 2
 
 Escribir una función que reciba una cadena de caracteres a validar,
 y un segundo parámetro, que contenga una cadena con los caracteres válidos. 
 La función debe devolver True, si la cadena a validar, está formada sólo por
-caracteres válidos; en caso contrario, deberá devolver False.'''
+caracteres válidos; en caso contrario, deberá devolver False.
+
+'''
 
 
 def es_valido_el_caracter(cadena_usr, cadena_valida):
