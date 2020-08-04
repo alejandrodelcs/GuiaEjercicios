@@ -7,9 +7,7 @@ def leer(ar_programa):
         devolver = linea.rstrip("\n").split(",")
     else:
         devolver = ""
-    return devolver
-
-
+    return devolver 
 def listar_archivo():
     ar_programa = open('validacionmail.py','r')
     ar_programa_txt = open('validacion2.txt','r+')
